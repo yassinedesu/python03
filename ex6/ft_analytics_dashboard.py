@@ -1,15 +1,24 @@
 players_data = [
-    {"name": "alice", "score": 2300, "level": 15, "region": "north", "active": True},
-    {"name": "bob", "score": 1800, "level": 8, "region": "east", "active": True},
     {
-        "name": "charlie",
-        "score": 2150,
-        "level": 12,
-        "region": "central",
-        "active": True,
+        "name": "alice", "score": 2300,
+        "level": 15, "region": "north", "active": True
     },
-    {"name": "diana", "score": 2050, "level": 11, "region": "north", "active": False},
-    {"name": "eve", "score": 950, "level": 4, "region": "east", "active": False},
+    {
+        "name": "bob", "score": 1800,
+        "level": 8, "region": "east", "active": True
+    },
+    {
+        "name": "charlie", "score": 2150,
+        "level": 12, "region": "central", "active": True
+    },
+    {
+        "name": "diana", "score": 2050,
+        "level": 11, "region": "north", "active": False
+    },
+    {
+        "name": "eve", "score": 950,
+        "level": 4, "region": "east", "active": False
+    },
 ]
 
 achievements_data = [
@@ -30,7 +39,9 @@ def list_comprehension_examples() -> None:
     print("=== List Comprehension Examples ===")
     high_scorers = [p["name"] for p in players_data if p["score"] > 2000]
     print(f"High scorers (>2000): {high_scorers}")
-    scores_doubled = [p["score"] * 2 for p in players_data if p["score"] > 2000]
+    scores_doubled = [
+        p["score"] * 2 for p in players_data if p["score"] > 2000
+    ]
     print(f"Scores doubled: {scores_doubled}")
     active_players = [p["name"] for p in players_data if p["active"]]
     print(f"Active players: {active_players}")
@@ -48,10 +59,14 @@ def dict_comprehension_examples() -> None:
             return "medium"
         return "low"
 
-    score_categories = {p["name"]: score_category(p["score"]) for p in players_data}
+    score_categories = {
+        p["name"]: score_category(p["score"]) for p in players_data
+    }
     print(f"Score categories: {score_categories}")
     achievement_counts = {
-        p["name"]: sum(1 for a in achievements_data if a["player"] == p["name"])
+        p["name"]: sum(
+            1 for a in achievements_data if a["player"] == p["name"]
+        )
         for p in players_data
     }
     print(f"Achievement counts: {achievement_counts}")
@@ -75,7 +90,9 @@ def combined_analysis() -> None:
     scores = [p["score"] for p in players_data]
     average_score = sum(scores) / len(scores)
     achievement_counts = {
-        p["name"]: sum(1 for a in achievements_data if a["player"] == p["name"])
+        p["name"]: sum(
+            1 for a in achievements_data if a["player"] == p["name"]
+        )
         for p in players_data
     }
     top = max(players_data, key=lambda p: p["score"])
