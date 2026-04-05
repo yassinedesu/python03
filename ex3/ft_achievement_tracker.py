@@ -2,14 +2,12 @@ def players_info(name: str, player: set) -> None:
     print(f"Player {name} achievements: {player}")
 
 
-def achievemnt_analytics(sets: set) -> None:
-
+def achievement_analytics(sets: set) -> None:
     print(f"All unique achievements: {sets}")
     print(f"Total unique achievements: {len(sets)}\n")
 
 
 def comparing(alice: set, bob: set, charlie: set) -> None:
-    # common_to_all = alice.intersection(bob, charlie)
     print(f"Common to all players: {alice.intersection(bob, charlie)}")
     rare = (
         alice.difference(bob, charlie)
@@ -40,6 +38,6 @@ if __name__ == "__main__":
     players_info("charlie", charlie)
 
     print("\n=== Achievement Analytics ===")
-    all = alice.union(bob, charlie)
-    achievemnt_analytics(all)
+    all_of_it = alice.union(bob, charlie)
+    achievement_analytics(all_of_it)
     comparing(alice, bob, charlie)
