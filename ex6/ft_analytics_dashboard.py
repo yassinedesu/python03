@@ -82,6 +82,10 @@ def set_comprehension_examples() -> None:
     print(f"Active regions: {active_regions}")
 
 
+def get_score(player: dict) -> int:
+    return player["score"]
+
+
 def combined_analysis() -> None:
     print("\n=== Combined Analysis ===")
     total_players = len({p["name"] for p in players_data})
@@ -95,7 +99,7 @@ def combined_analysis() -> None:
         )
         for p in players_data
     }
-    top = max(players_data, key=lambda p: p["score"])
+    top = max(players_data, key=get_score)
     top_achievements = achievement_counts.get(top["name"], 0)
     print(f"Total players: {total_players}")
     print(f"Total unique achievements: {total_achievements}")
